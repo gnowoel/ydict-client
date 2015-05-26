@@ -10,7 +10,7 @@ describe('formatResult', function() {
     fetchPage(keyword, function(error, body) {
       var result = parseBody(body);
       var formatted = formatResult(keyword, result);
-      assert.equal(formatted, 'KK: [\u001b[1mwɝd\u001b[22m] DJ: [\u001b[1mwə:d\u001b[22m]');
+      assert.include(formatted, 'KK: [\u001b[1mwɝd\u001b[22m] DJ: [\u001b[1mwə:d\u001b[22m]');
       done();
     });
   });
