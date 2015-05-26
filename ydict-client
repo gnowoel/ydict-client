@@ -5,6 +5,7 @@
 var url = require('url');
 var request = require('request');
 var cheerio = require('cheerio');
+var chalk = require('chalk');
 
 function buildUrl(keyword) {
   return url.format({
@@ -43,8 +44,11 @@ function parseBody(body) {
   };
 }
 
-function displayResult(result) {
-  console.log(result);
+function displayResult(keyword, result) {
+  if (keyword !== result.word) {
+    console.log(chalk.cyan.bold.underline(result.word));
+  }
+  console.log(result.pronunciation.replace(/\[([^\]]+)\]/g, ': [' + chalk.bold("$1") + ']'));
 }
 
 function main() {
@@ -58,7 +62,7 @@ function main() {
   fetchPage(keyword, function(error, body) {
     if (error) throw new Error(error);
     var result = parseBody(body);
-    displayResult(result);
+    displayResult(keyword, result);
   });
 }
 
