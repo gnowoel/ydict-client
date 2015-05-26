@@ -40,7 +40,14 @@ function parseBody(body) {
 }
 
 function main() {
-  fetchPage('word', function(error, body) {
+  var args = process.argv.splice(2);
+  if (args.length === 0) {
+    console.error('Usage: ydict-client <word or phrase>');
+    process.exit(1);
+  }
+  var keyword = args.join(' ');
+
+  fetchPage(keyword, function(error, body) {
     if (error) throw new Error(error);
     console.log(parseBody(body));
   });
