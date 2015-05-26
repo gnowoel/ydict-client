@@ -1,17 +1,8 @@
 #!/usr/bin/env node
 
-var cheerio = require('cheerio');
 var chalk = require('chalk');
 var fetchPage = require('./lib/fetch_page');
-
-function parseBody(body) {
-  var $ = cheerio.load(body);
-  var root = $('#results');
-  return {
-    'word': root.find('#term').first().text(),
-    "pronunciation": root.find("#pronunciation_pos").text()
-  };
-}
+var parseBody = require('./lib/parse_body');
 
 function displayResult(keyword, result) {
   if (keyword !== result.word) {
@@ -33,12 +24,6 @@ function main() {
     var result = parseBody(body);
     displayResult(keyword, result);
   });
-}
-
-if (process.env.NODE_ENV === 'test') {
-  module.exports._private = {
-    parseBody: parseBody
-  }
 }
 
 if (require.main === module) {
