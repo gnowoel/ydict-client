@@ -1,15 +1,8 @@
 #!/usr/bin/env node
 
-var chalk = require('chalk');
 var fetchPage = require('./lib/fetch_page');
 var parseBody = require('./lib/parse_body');
-
-function displayResult(keyword, result) {
-  if (keyword !== result.word) {
-    console.log(chalk.cyan.bold.underline(result.word));
-  }
-  console.log(result.pronunciation.replace(/\[([^\]]+)\]/g, ': [' + chalk.bold("$1") + ']'));
-}
+var displayResult = require('./lib/display_result');
 
 function main() {
   var args = process.argv.splice(2);
