@@ -1,7 +1,7 @@
 var url = require('url');
 var request = require('request');
 
-exports.buildUrl = function (keyword) {
+function buildUrl(keyword) {
   return url.format({
     protocol: 'https:',
     host: 'tw.dictionary.search.yahoo.com',
@@ -10,9 +10,9 @@ exports.buildUrl = function (keyword) {
   });
 }
 
-exports.fetchPage = function(keyword, callback) {
+function fetchPage(keyword, callback) {
   var options = {
-    url: exports.buildUrl(keyword),
+    url: buildUrl(keyword),
     headers: {
       'User-Agent': 'Mozilla/5.0'
     }
@@ -29,3 +29,9 @@ exports.fetchPage = function(keyword, callback) {
   });
 }
 
+if (process.env.NODE_ENV === 'test') {
+  module.exports._private = {
+    buildUrl: buildUrl,
+    fetchPage: fetchPage
+  }
+}

@@ -2,7 +2,7 @@
   "name": "ydict-client",
   "version": "0.0.1",
   "scripts": {
-    "test": "mocha"
+    "test": "NODE_ENV=test mocha"
   },
   "dependencies": {
     "request": "^2.55.0"
