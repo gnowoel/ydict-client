@@ -36,7 +36,15 @@ function fetchPage(keyword, callback) {
 
 function parseBody(body) {
   var $ = cheerio.load(body);
-  return $('#results').text();
+  var root = $('#results');
+  return {
+    'word': root.find('#term').first().text(),
+    "pronunciation": root.find("#pronunciation_pos").text()
+  };
+}
+
+function displayResult(result) {
+  console.log(result);
 }
 
 function main() {
@@ -49,14 +57,16 @@ function main() {
 
   fetchPage(keyword, function(error, body) {
     if (error) throw new Error(error);
-    console.log(parseBody(body));
+    var result = parseBody(body);
+    displayResult(result);
   });
 }
 
 if (process.env.NODE_ENV === 'test') {
   module.exports._private = {
     buildUrl: buildUrl,
-    fetchPage: fetchPage
+    fetchPage: fetchPage,
+    parseBody: parseBody
   }
 }
 
