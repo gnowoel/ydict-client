@@ -1,3 +1,7 @@
+#!/usr/bin/env node
+
+'use strict';
+
 var url = require('url');
 var request = require('request');
 var cheerio = require('cheerio');
@@ -35,9 +39,20 @@ function parseBody(body) {
   return $('#results').text();
 }
 
+function main() {
+  fetchPage('word', function(error, body) {
+    if (error) throw new Error(error);
+    console.log(parseBody(body));
+  });
+}
+
 if (process.env.NODE_ENV === 'test') {
   module.exports._private = {
     buildUrl: buildUrl,
     fetchPage: fetchPage
   }
+}
+
+if (require.main === module) {
+  main();
 }
