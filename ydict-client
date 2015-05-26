@@ -2,7 +2,7 @@
 
 var fetchPage = require('./lib/fetch_page');
 var parseBody = require('./lib/parse_body');
-var displayResult = require('./lib/display_result');
+var formatResult = require('./lib/format_result');
 
 function main() {
   var args = process.argv.splice(2);
@@ -15,7 +15,8 @@ function main() {
   fetchPage(keyword, function(error, body) {
     if (error) throw new Error(error);
     var result = parseBody(body);
-    displayResult(keyword, result);
+    var formatted = formatResult(keyword, result);
+    console.log(formatted);
   });
 }
 
