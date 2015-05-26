@@ -1,5 +1,6 @@
 var url = require('url');
 var request = require('request');
+var cheerio = require('cheerio');
 
 function buildUrl(keyword) {
   return url.format({
@@ -27,6 +28,11 @@ function fetchPage(keyword, callback) {
       callback(null, body);
     }
   });
+}
+
+function parseBody(body) {
+  var $ = cheerio.load(body);
+  return $('#results').text();
 }
 
 if (process.env.NODE_ENV === 'test') {
