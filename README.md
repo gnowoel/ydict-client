@@ -1,6 +1,6 @@
 # ydict-client
 
-A command-line interface to Yahoo's online Chinese-English dictionary.
+A command-line interface to Yahoo's online English-Chinese dictionary.
 
 ## Installation
 
@@ -17,3 +17,13 @@ $ ydict-client <query string>
 ## Screenshot
 
 ![ydict-client](screenshot.png)
+
+## Tests
+
+```bash
+$ npm test
+```
+
+## License
+
+MIT
