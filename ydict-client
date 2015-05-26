@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 
-var fetchPage = require('./lib/fetch_page');
-var parseBody = require('./lib/parse_body');
-var formatResult = require('./lib/format_result');
+var lookup = require('./lib/lookup');
 
 function main() {
   var args = process.argv.splice(2);
@@ -12,14 +10,14 @@ function main() {
   }
   var keyword = args.join(' ');
 
-  fetchPage(keyword, function(error, body) {
+  lookup(keyword, function(error, definition) {
     if (error) throw new Error(error);
-    var result = parseBody(body);
-    var formatted = formatResult(keyword, result);
-    console.log(formatted);
+    console.log(definition);
   });
 }
 
 if (require.main === module) {
   main();
 }
+
+module.exports = lookup;
