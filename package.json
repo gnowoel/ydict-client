@@ -3,5 +3,12 @@
   "version": "0.0.1",
   "scripts": {
     "test": "mocha"
+  },
+  "dependencies": {
+    "request": "^2.55.0"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*"
   }
 }
