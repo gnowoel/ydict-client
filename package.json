@@ -1,6 +1,11 @@
 {
   "name": "ydict-client",
   "version": "0.0.1",
+  "description": "A command-line interface to Yahoo's online English-Chinese dictionary.",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/gnowoel/ydict-client"
+  },
   "scripts": {
     "test": "NODE_ENV=test mocha"
   },
