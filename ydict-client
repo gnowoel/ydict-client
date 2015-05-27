@@ -9,11 +9,11 @@ function main() {
     console.error('Usage: ydict-client <word or phrase>');
     process.exit(1);
   }
-  var keyword = args.join(' ');
+  var word = args.join(' ');
 
-  lookupWord(keyword, function(error, result) {
+  lookupWord(word, function(error, result) {
     if (error) throw new Error(error);
-    var formatted = formatResult(keyword, result);
+    var formatted = formatResult(word, result);
     console.log(formatted);
   });
 }

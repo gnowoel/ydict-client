@@ -4,9 +4,9 @@ var formatResult = require('../lib/format_result');
 
 describe('formatResult', function() {
   it('should format parsed result', function(done) {
-    var keyword = 'word';
-    lookupWord(keyword, function(error, result) {
-      var formatted = formatResult(keyword, result);
+    var word = 'word';
+    lookupWord(word, function(error, result) {
+      var formatted = formatResult(word, result);
       assert.include(formatted, 'KK: [\u001b[1mwɝd\u001b[22m] DJ: [\u001b[1mwə:d\u001b[22m]');
       done();
     });
