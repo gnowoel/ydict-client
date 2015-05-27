@@ -1,5 +1,4 @@
 var assert = require('chai').assert;
-var ydictClient = require('..');
 var fetchPage = require('../lib/fetch_page');
 var parseBody = require('../lib/parse_body');
 

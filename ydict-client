@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-var lookup = require('./lib/lookup');
+var lookupWord = require('./lib/lookup_word');
+var formatResult = require('./lib/format_result');
 
 function main() {
   var args = process.argv.splice(2);
@@ -10,9 +11,10 @@ function main() {
   }
   var keyword = args.join(' ');
 
-  lookup(keyword, function(error, definition) {
+  lookupWord(keyword, function(error, result) {
     if (error) throw new Error(error);
-    console.log(definition);
+    var formatted = formatResult(keyword, result);
+    console.log(formatted);
   });
 }
 
@@ -20,4 +22,4 @@ if (require.main === module) {
   main();
 }
 
-module.exports = lookup;
+module.exports = lookupWord;

@@ -18,6 +18,19 @@ $ ydict-client <query string>
 
 ![ydict-client](screenshot.png)
 
+## API
+
+To use it programmatically:
+
+```javascript
+var ydict = require('ydict-client');
+
+ydict('word', function(error, definition) {
+  if (error) throw new Error(error);
+  console.log(JSON.stringify(definition));
+});
+```
+
 ## Tests
 
 ```bash
