@@ -34,6 +34,7 @@ ydict('word', function(error, definition) {
 ## Tests
 
 ```bash
+$ npm install
 $ npm test
 ```
 
