@@ -11,10 +11,14 @@ function main() {
   }
   var word = args.join(' ');
 
-  lookupWord(word, function(error, result) {
+  lookupWord(word, function callback(error, result) {
     if (error) throw new Error(error);
-    var formatted = formatResult(word, result);
-    console.log(formatted);
+    if (result.word) {
+      var formatted = formatResult(word, result);
+      console.log(formatted);
+    } else if (result.suggestion) {
+      lookupWord(result.suggestion, callback);
+    }
   });
 }
 
