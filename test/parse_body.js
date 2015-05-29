@@ -8,6 +8,7 @@ describe('parseBody', function() {
       var result = parseBody(body);
       assert.equal(result.word, 'word');
       assert.equal(result.pronunciation, 'KK[wɝd] DJ[wə:d]');
+      assert.equal(result.variants.join(','), 'words,worded,worded,wording');
       done();
     });
   });

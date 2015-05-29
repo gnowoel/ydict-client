@@ -7,6 +7,7 @@ describe('lookupWord', function() {
     lookupWord(word, function(error, result) {
       assert.equal(result.word, 'word');
       assert.equal(result.pronunciation, 'KK[wɝd] DJ[wə:d]');
+      assert.equal(result.variants.join(','), 'words,worded,worded,wording');
       done();
     });
   });
