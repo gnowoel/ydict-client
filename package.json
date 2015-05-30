@@ -11,7 +11,7 @@
   },
   "main": "ydict-client",
   "bin": {
-    "ydict-client": "./ydict-client"
+    "ydict-client": "./ydict-client.js"
   },
   "dependencies": {
     "chalk": "^1.0.0",
