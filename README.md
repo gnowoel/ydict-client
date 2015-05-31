@@ -2,7 +2,19 @@
 
 A command-line interface to Yahoo's online English-Chinese dictionary.
 
-## Installation
+## Features
+
+* Displaying definition in color
+* Highlighting keyword and it's variants
+* Auto-correcting spelling
+
+## Screenshot
+
+![ydict-client](screenshot.png)
+
+## Installing
+
+Installing with NPM:
 
 ```bash
 $ npm install -g ydict-client
@@ -10,22 +22,27 @@ $ npm install -g ydict-client
 
 ## Usage
 
+Looking up a word or phrase:
+
 ```bash
-$ ydict-client <query string>
+$ ydict-client <word or phrase>
 ```
 
-## Screenshot
+Examples:
 
-![ydict-client](screenshot.png)
+```bash
+$ ydict-client word
+$ ydict-client look up
+```
 
 ## API
 
 To use it programmatically:
 
 ```javascript
-var ydict = require('ydict-client');
+var ydictClient = require('ydict-client');
 
-ydict('word', function(error, definition) {
+ydictClient('word', function(error, definition) {
   if (error) throw new Error(error);
   console.log(JSON.stringify(definition));
 });
