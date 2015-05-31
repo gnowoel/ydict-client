@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var fetchPage = require('../lib/fetch_page');
+var fetchPage = require('../lib/fetch-page');
 
 describe('buildUrl', function() {
   it('should build the search URL with given query string', function() {

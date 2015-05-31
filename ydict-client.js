@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-var lookupWord = require('./lib/lookup_word');
-var formatResult = require('./lib/format_result');
+var lookupWord = require('./lib/lookup-word');
+var formatResult = require('./lib/format-result');
 
 function main() {
   var args = process.argv.splice(2);

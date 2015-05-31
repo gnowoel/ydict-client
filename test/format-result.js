@@ -1,6 +1,6 @@
 var assert = require('chai').assert;
-var lookupWord = require('../lib/lookup_word');
-var formatResult = require('../lib/format_result');
+var lookupWord = require('../lib/lookup-word');
+var formatResult = require('../lib/format-result');
 
 describe('formatResult', function() {
   it('should format parsed result', function(done) {

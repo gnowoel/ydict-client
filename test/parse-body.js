@@ -1,6 +1,6 @@
 var assert = require('chai').assert;
-var fetchPage = require('../lib/fetch_page');
-var parseBody = require('../lib/parse_body');
+var fetchPage = require('../lib/fetch-page');
+var parseBody = require('../lib/parse-body');
 
 describe('parseBody', function() {
   it('should return parsed search result', function(done) {

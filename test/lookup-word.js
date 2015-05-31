@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var lookupWord = require('../lib/lookup_word');
+var lookupWord = require('../lib/lookup-word');
 
 describe('lookupWord', function() {
   it('should return definition of a searched word', function(done) {
