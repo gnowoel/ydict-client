@@ -1,4 +1,4 @@
-# ydict-client
+# ydict-client [![Build Status](https://travis-ci.org/gnowoel/ydict-client.svg?branch=master)](https://travis-ci.org/gnowoel/ydict-client)
 
 A command-line interface to Yahoo's online English-Chinese dictionary.
 
