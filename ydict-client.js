@@ -11,14 +11,22 @@ function main() {
   }
   var word = args.join(' ');
 
-  lookupWord(word, function callback(error, result) {
+  lookup(word, function(error, definition) {
     if (error) throw new Error(error);
-    if (result.word) {
+    if (definition.word) {
       var formatted = formatResult(word, result);
       console.log(formatted);
-    } else if (result.suggestion) {
-      lookupWord(result.suggestion, callback);
     }
+  });
+}
+
+function lookup(word, callback) {
+  lookupWord(word, function(error, result) {
+    if (error) return callback(error);
+    if (!result.word && result.suggestion) {
+      return lookupWord(result.suggestion, callback);
+    }
+    callback(null, result);
   });
 }
 
@@ -26,4 +34,4 @@ if (require.main === module) {
   main();
 }
 
-module.exports = lookupWord;
+module.exports = lookup;
