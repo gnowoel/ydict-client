@@ -14,7 +14,7 @@ function main() {
   lookup(word, function(error, definition) {
     if (error) throw new Error(error);
     if (definition.word) {
-      var formatted = formatResult(word, result);
+      var formatted = formatResult(word, definition);
       console.log(formatted);
     }
   });
