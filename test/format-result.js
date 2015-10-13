@@ -13,4 +13,13 @@ describe('formatResult', function() {
       done();
     });
   });
+
+  it('should highlight key words regardless of letter case', function(done) {
+    var word = 'advice';
+    lookupWord(word, function(error, result) {
+      var formatted = formatResult(word, result);
+      assert.include(formatted, '\u001b[1mAdvices\u001b[22m');
+      done();
+    });
+  });
 });
